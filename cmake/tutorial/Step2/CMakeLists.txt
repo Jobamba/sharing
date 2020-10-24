@@ -13,11 +13,6 @@ option(USE_MYMATH "Use tutorial provided math implementation" ON)
 # to the source code
 configure_file(TutorialConfig.h.in TutorialConfig.h)
 
-add_library(MathFunctions mysqrt.cxx)
-
-add_subdirectory(MathFunctions)
-
-
 if(USE_MYMATH)
   add_subdirectory(MathFunctions)
   list(APPEND EXTRA_LIBS MathFunctions)
@@ -32,5 +27,5 @@ target_link_libraries(Tutorial PUBLIC ${EXTRA_LIBS})
 # so that we will find TutorialConfig.h
 target_include_directories(Tutorial PUBLIC
                            "${PROJECT_BINARY_DIR}"
-                           "${EXTRA_INCLUDES}"
+                           ${EXTRA_INCLUDES}
 						   )

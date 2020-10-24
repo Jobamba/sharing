@@ -1,3 +1,6 @@
 .ipynb_checkpoints
 *.out
 .idea
+
+# build directories
+*_build
